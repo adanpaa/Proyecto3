@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Inner Page - Gp Bootstrap Template</title>
+  <title>UPGym</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -26,7 +26,7 @@
   <link href="/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/mystyles.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Gp - v2.1.0
@@ -42,7 +42,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="/">Gp<span>.</span></a></h1>
+      <h1 class="logo"><a href="/">UPGym<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="/img/logo.png" alt="" class="img-fluid"></a>-->
 
