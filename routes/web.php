@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrainersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::get('/portfolio', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::resource('trainer', TrainersController::class);
