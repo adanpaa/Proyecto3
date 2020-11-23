@@ -26,16 +26,24 @@
     <th>Edad</th>
     <th>Plan</th>
     <th>Sucursal a la que asiste</th>
+    <th>Entrenadores</th>
   </tr>
   @foreach ($customers as $p)
     <tr>
       <td>{{ $p->id }}</td>
-      <td><a href="/trainer/{{ $p->id }}">{{ $p->nombre }}</a></td>
+      <td><a href="/customer/{{ $p->id }}">{{ $p->nombre }}</a></td>
       <td>{{ $p->edad }}</td>
       <td>{{ $p->plan }}</td>
       <td>{{ $p->branch->nombre }}</td>
+      <td>
+        @foreach ($p->trainer as $trainer)
+          {{ $trainer->nombre }} <br>
+        @endforeach
+      </td>
     </tr>
   @endforeach
+
+
 </table>
 
 <section id="breadcrumbs" class="breadcrumbs">

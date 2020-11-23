@@ -19,11 +19,11 @@
 <a href="/branch/create">Add new branch</a>
 </p>
 
-<h1>Listado de Sucursales y sus Clientes</h1>
+<h1 align=center>Listado de Sucursales y sus Clientes</h1>
 
     @foreach ($branches as $branch)
 
-    <h3 align=center>{{ $branch->nombre }}</h3>
+    <h4 align=center><a href="/branch/{{ $branch->id }}">{{ $branch->nombre }}</a></h4>
 
         <table align=center border='1'>
             <tr>
@@ -35,7 +35,7 @@
             @foreach ($branch->customers as $p)
                 <tr>
                 <td>{{ $p->id }}</td>
-                <td><a href="/trainer/{{ $p->id }}">{{ $p->nombre }}</a></td>
+                <td>{{ $p->nombre }}</td>
                 <td>{{ $p->edad }}</td>
                 <td>{{ $p->plan }}</td>
                 </tr>

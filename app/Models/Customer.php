@@ -10,6 +10,11 @@ class Customer extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $table = 'customers';
+    protected $fillable = [
+        'nombre', 'edad', 'plan',
+    ];
+
     public function branch()
     {
         return $this->belongsTo(Branch::class);

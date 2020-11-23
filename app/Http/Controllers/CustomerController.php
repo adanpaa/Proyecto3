@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Trainer;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ class CustomerController extends Controller
     {
         //
         $branches = Branch::all();
-        return view('customers.customersForm', compact('branches'));
+        $trainers = Trainer::all();
+        return view('customers.customersForm', compact('branches', 'trainers'));
     }
 
     /**
@@ -47,6 +49,7 @@ class CustomerController extends Controller
         $customer->edad = $request->edad;
         $customer->plan = $request->plan;
         $customer->save();
+        $customer->trainer()->attach($request->trainer_id);
 
         return redirect()->route('customer.index');
     }
@@ -60,6 +63,7 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
         //
+        return view('customers/customersShow', compact('customer'));
     }
 
     /**
@@ -71,6 +75,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
+        return view('customers/customersForm', compact('customer'));
     }
 
     /**
@@ -94,5 +99,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+        $customer->delete();
+        return redirect()->route('customer.index');
     }
 }

@@ -27,6 +27,7 @@ class BranchController extends Controller
     public function create()
     {
         //
+        return view('branches/branchesForm');
     }
 
     /**
@@ -38,6 +39,16 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required',
+        ]);
+
+        Branch::create($request->all());
+
+        return redirect('/branch');
     }
 
     /**
@@ -49,6 +60,7 @@ class BranchController extends Controller
     public function show(Branch $branch)
     {
         //
+        return view('branches/branchShow', compact('branch'));
     }
 
     /**
@@ -60,6 +72,7 @@ class BranchController extends Controller
     public function edit(Branch $branch)
     {
         //
+        return view('branches/branchesForm', compact('branch'));
     }
 
     /**
@@ -83,5 +96,7 @@ class BranchController extends Controller
     public function destroy(Branch $branch)
     {
         //
+        $branch->delete();
+        return redirect()->route('branch.index');
     }
 }

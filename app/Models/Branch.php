@@ -10,6 +10,11 @@ class Branch extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $table = 'branches';
+    protected $fillable = [
+        'nombre', 'direccion', 'correo', 'telefono'
+    ];
+
     public function customers()
     {
         return $this->hasMany(Customer::class);

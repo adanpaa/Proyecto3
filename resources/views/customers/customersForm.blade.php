@@ -40,12 +40,7 @@
     @csrf
     <ul align=center>
 
-    <label for="sucursal">Sucursal a la que asiste:</label>
-    <select name = branch_id>
-        @foreach ($branches as $branch)
-            <option value="{{ $branch->id }}">{{ $branch->nombre }}</option>
-        @endforeach
-    </select>
+    
 
     <br>
     <label for="nombre">Nombre:</label>
@@ -56,6 +51,23 @@
 
     <label for="plan">Plan:</label>
     <input type="text" name="plan" value="{{ old('plan') ?? $customer->area ?? '' }}"><br>
+
+    <label for="sucursal">Sucursal a la que asiste:</label>
+    <select name = branch_id>
+        @foreach ($branches as $branch)
+            <option value="{{ $branch->id }}">{{ $branch->nombre }}</option>
+        @endforeach
+    </select>
+
+    <h4>Entrenadores Asignados</h4>
+    <br>
+
+    <select name="trainer_id[]" multiple>
+        @foreach ($trainers as $trainer)
+            <option value="{{ $trainer->id }}" {{ isset($customer) && in_array($trainer->id, $customer->trainers()->pluck('id')->toArray()) ? 'selected' : '' }}>{{$trainer->nombre}}</option>
+        @endforeach
+    </select>
+    <br>
 
     <button type="submit">Guardar</button>
 </ul>
