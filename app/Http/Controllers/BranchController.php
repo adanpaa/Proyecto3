@@ -85,6 +85,17 @@ class BranchController extends Controller
     public function update(Request $request, Branch $branch)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'correo' => 'required',
+        ]);
+
+
+        Branch::where('id', $branch->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('branch.show', [$branch]);
     }
 
     /**
