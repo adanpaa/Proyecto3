@@ -50,7 +50,7 @@
     <input type="number" name="edad" value="{{ old('edad') ?? $customer->edad ?? '' }}"><br>
 
     <label for="plan">Plan:</label>
-    <input type="text" name="plan" value="{{ old('plan') ?? $customer->area ?? '' }}"><br>
+    <input type="text" name="plan" value="{{ old('plan') ?? $customer->plan ?? '' }}"><br>
 
     <label for="sucursal">Sucursal a la que asiste:</label>
     <select name = branch_id>
@@ -64,7 +64,7 @@
 
     <select name="trainer_id[]" multiple>
         @foreach ($trainers as $trainer)
-            <option value="{{ $trainer->id }}" {{ isset($customer) && in_array($trainer->id, $customer->trainers()->pluck('id')->toArray()) ? 'selected' : '' }}>{{$trainer->nombre}}</option>
+            <option value="{{ $trainer->id }}" {{ isset($customer) && in_array($trainer->id, $customer->trainer()->pluck('id')->toArray()) ? 'selected' : '' }}>{{$trainer->nombre}}</option>
         @endforeach
     </select>
     <br>

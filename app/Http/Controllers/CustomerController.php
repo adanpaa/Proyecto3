@@ -43,6 +43,13 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'nombre' => 'required',
+            'edad' => 'required',
+            'plan' => 'required',
+        ]);
+
         $customer = new Customer();
         $customer->branch_id = $request->branch_id;
         $customer->nombre = $request->nombre;
@@ -75,7 +82,9 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
-        return view('customers/customersForm', compact('customer'));
+        $branches = Branch::all();
+        $trainers = Trainer::all();
+        return view('customers/customersForm', compact('customer', 'branches', 'trainers'));
     }
 
     /**
@@ -88,6 +97,18 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         //
+        $request->validate([
+            'nombre' => 'required',
+            'edad' => 'required',
+            'plan' => 'required',
+        ]);
+
+
+        Customer::where('id', $customer->id)->update($request->except('_token', '_method', 'trainer_id'));
+        $customer->trainer()->sync($request->trainer_id);
+
+        return redirect()->route('customer.show', [$customer]);
+
     }
 
     /**
