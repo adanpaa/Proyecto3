@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Trainer extends Model
+class Customer extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
-    protected $table = 'trainers';
-    protected $fillable = [
-        'nombre', 'apellido', 'edad', 'area'
-    ];
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
 }
