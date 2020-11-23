@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainersController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BranchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,9 @@ Route::get('/contact', function () {
 });
 
 Route::resource('trainer', TrainersController::class);
+Route::resource('customer', CustomerController::class);
+Route::resource('branch', BranchController::class);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

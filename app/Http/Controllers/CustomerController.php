@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -15,6 +16,8 @@ class CustomerController extends Controller
     public function index()
     {
         //
+        $customers = Customer::all();
+        return view('customers/customersIndex', compact('customers'));
     }
 
     /**
@@ -25,6 +28,8 @@ class CustomerController extends Controller
     public function create()
     {
         //
+        $branches = Branch::all();
+        return view('customers.customersForm', compact('branches'));
     }
 
     /**
@@ -36,6 +41,14 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+        $customer = new Customer();
+        $customer->branch_id = $request->branch_id;
+        $customer->nombre = $request->nombre;
+        $customer->edad = $request->edad;
+        $customer->plan = $request->plan;
+        $customer->save();
+
+        return redirect()->route('customer.index');
     }
 
     /**
