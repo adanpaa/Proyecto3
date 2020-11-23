@@ -14,4 +14,9 @@ class Trainer extends Model
     protected $fillable = [
         'nombre', 'apellido', 'edad', 'area'
     ];
+
+    public function customer()
+    {
+        return $this->belongsToMany(Customer::class);
+    }
 }
