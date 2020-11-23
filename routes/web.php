@@ -22,6 +22,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+
 Route::get('/services', function () {
     return view('services');
 });
@@ -39,3 +43,7 @@ Route::get('/contact', function () {
 });
 
 Route::resource('trainer', TrainersController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

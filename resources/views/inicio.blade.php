@@ -1,6 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('contenido')
+
+
+
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center justify-content-center">
