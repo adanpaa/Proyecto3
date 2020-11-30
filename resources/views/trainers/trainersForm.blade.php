@@ -21,15 +21,7 @@
     </section>
 <!-- End Breadcrumbs -->
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@include('partials.error-view');
 
 @if(isset($trainer))
 <form action="{{ route('trainer.update', [$trainer]) }}" method="POST">
