@@ -19,6 +19,7 @@ class CreateBranchesTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('correo');
+            $table->softDeletes();
         });
     }
 

@@ -23,15 +23,13 @@
   <tr>
     <th>ID</th>
     <th>Nombre</th>
-    <th>Apellido</th>
     <th>Edad</th>
     <th>Area</th>
   </tr>
   @foreach ($trainers as $p)
     <tr>
       <td>{{ $p->id }}</td>
-      <td><a href="/trainer/{{ $p->id }}">{{ $p->nombre }}</a></td>
-      <td>{{ $p->apellido }}</td>
+      <td><a href="/trainer/{{ $p->id }}">{{ $p->nombre_con_apellido }}</a></td>
       <td>{{ $p->edad }}</td>
       <td>{{ $p->area }}</td>
     </tr>

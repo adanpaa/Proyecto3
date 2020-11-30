@@ -20,6 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('nombre');
             $table->integer('edad');
             $table->string('plan');
+            $table->softDeletes();
         });
     }
 

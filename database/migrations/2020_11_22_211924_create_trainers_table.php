@@ -19,6 +19,7 @@ class CreateTrainersTable extends Migration
             $table->string('apellido');
             $table->integer('edad');
             $table->string('area');
+            $table->softDeletes();
         });
     }
 

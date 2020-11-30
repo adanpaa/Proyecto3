@@ -14,8 +14,8 @@ class CreateCustomerTrainerTable extends Migration
     public function up()
     {
         Schema::create('customer_trainer', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('trainer_id')->constrained();
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
         });
     }
 
