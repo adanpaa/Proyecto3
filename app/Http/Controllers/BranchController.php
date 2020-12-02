@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class BranchController extends Controller
 {
@@ -15,7 +16,7 @@ class BranchController extends Controller
     public function index()
     {
         //
-        $branches = Branch::all();
+        $branches = Branch::with('customers')->get();
         return view('branches/branchesIndex', compact('branches'));
     }
 
