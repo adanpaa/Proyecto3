@@ -17,7 +17,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $customers = Customer::all();
+        $customers = Customer::with('branch', 'trainer')->get();
         return view('customers/customersIndex', compact('customers'));
     }
 
