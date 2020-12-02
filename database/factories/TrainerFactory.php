@@ -21,11 +21,12 @@ class TrainerFactory extends Factory
      */
     public function definition()
     {
+        $areas = ['Pesas', 'Crossfit', 'Calistenia', 'Cardio', 'Estiramiento'];
         return [
             'nombre' => $this->faker->firstName(),
             'apellido' => $this->faker->lastName(),
             'edad' => $this->faker->numberBetween(18, 35),
-            'area' => 'Pesas',
+            'area' => $areas[mt_rand(0, count($areas)-1)],
         ];
     }
 }

@@ -21,11 +21,13 @@ class CustomerFactory extends Factory
      */
     public function definition()
     {
+        $planes = ['Mensual', 'Anual'];
         return [
             'branch_id' => $this->faker->numberBetween(1, 3),
             'nombre' => $this->faker->name(),
             'edad' => $this->faker->numberBetween(16, 50), 
-            'plan' => 'Mensual', 
+            'plan' => $planes[mt_rand(0, count($planes)-1)],
         ];
     }
+    
 }
