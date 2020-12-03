@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Http\Middleware\IsCustomer;
 
 class BranchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(IsCustomer::class);
+    }
     /**
      * Display a listing of the resource.
      *

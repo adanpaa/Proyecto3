@@ -44,9 +44,11 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::resource('trainer', TrainersController::class);
-Route::resource('customer', CustomerController::class);
-Route::resource('branch', BranchController::class);
+Route::middleware('auth')->group(function(){
+    Route::resource('trainer', TrainersController::class);
+    Route::resource('customer', CustomerController::class);
+    Route::resource('branch', BranchController::class);
+});
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

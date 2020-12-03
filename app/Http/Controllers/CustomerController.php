@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Http\Middleware\IsCustomer;
 use App\Models\Trainer;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(IsCustomer::class);
+    }
     /**
      * Display a listing of the resource.
      *
