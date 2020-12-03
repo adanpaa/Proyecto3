@@ -15,6 +15,7 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+@can('admin')
 <ul align=center>
 <a href="{{ action([\App\Http\Controllers\CustomerController::class, 'create']) }}">Añadir nuevo cliente</a><br>
 <a href="{{ route('customer.edit', [$customer->id]) }}">Editar Cliente</a><br>
@@ -25,6 +26,7 @@
   <button type="submit">Eliminar Cliente</button>
 </form>
 </ul>
+@endcan
 
 <table align=center border='1'>
   <tr>

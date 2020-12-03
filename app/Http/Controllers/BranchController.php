@@ -6,6 +6,7 @@ use App\Models\Branch;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Http\Middleware\IsCustomer;
+use Illuminate\Support\Facades\Gate;
 
 class BranchController extends Controller
 {
@@ -77,8 +78,9 @@ class BranchController extends Controller
      */
     public function edit(Branch $branch)
     {
-        //
+        Gate::authorize('admin');
         return view('branches/branchesForm', compact('branch'));
+
     }
 
     /**
@@ -113,6 +115,7 @@ class BranchController extends Controller
     public function destroy(Branch $branch)
     {
         //
+        Gate::authorize('admin');
         $branch->delete();
         return redirect()->route('branch.index');
     }

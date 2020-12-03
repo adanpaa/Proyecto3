@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Trainer;
 use App\Http\Middleware\IsCustomer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class TrainersController extends Controller
 {
@@ -85,6 +86,7 @@ class TrainersController extends Controller
     public function edit(Trainer $trainer)
     {
         //
+        Gate::authorize('admin');
         return view('trainers/trainersForm', compact('trainer'));
     }
 
@@ -120,6 +122,7 @@ class TrainersController extends Controller
     public function destroy(Trainer $trainer)
     {
         //
+        Gate::authorize('admin');
         $trainer->delete();
         return redirect()->route('trainer.index');
     }

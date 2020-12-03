@@ -7,6 +7,7 @@ use App\Http\Middleware\IsCustomer;
 use App\Models\Trainer;
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CustomerController extends Controller
 {
@@ -87,6 +88,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
+        Gate::authorize('admin');
         $branches = Branch::all();
         $trainers = Trainer::all();
         return view('customers/customersForm', compact('customer', 'branches', 'trainers'));
@@ -125,6 +127,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
+        Gate::authorize('admin');
         $customer->delete();
         return redirect()->route('customer.index');
     }

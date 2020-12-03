@@ -15,6 +15,7 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+@can('admin')
 <ul align=center>
 <a href="{{ action([\App\Http\Controllers\BranchController::class, 'create']) }}">Añadir nueva Sucursal</a><br>
 <a href="{{ route('branch.edit', [$branch->id]) }}">Editar Sucursal</a><br>
@@ -25,6 +26,7 @@
   <button type="submit">Eliminar Sucursal</button>
 </form>
 </ul>
+@endcan
 
 <table align=center border='1'>
   <tr>
