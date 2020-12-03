@@ -11,7 +11,7 @@ class BranchController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(IsCustomer::class);
+        $this->middleware(IsCustomer::class)->except('index', 'show');
     }
     /**
      * Display a listing of the resource.
