@@ -38,6 +38,7 @@
 
 <body>
 
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
@@ -88,6 +89,9 @@
 
     </div>
   </header><!-- End Header -->
+  <header id="header" class="fixed-top header-inner-pages">
+    @include('partials.message')
+  </header>
 
   @yield('contenido')
 

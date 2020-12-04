@@ -55,7 +55,7 @@ class BranchController extends Controller
 
         Branch::create($request->all());
 
-        return redirect('/branch');
+        return redirect('/branch')->with(['message' => 'Sucursal Agregada']);
     }
 
     /**
@@ -103,7 +103,7 @@ class BranchController extends Controller
 
         Branch::where('id', $branch->id)->update($request->except('_token', '_method'));
 
-        return redirect()->route('branch.show', [$branch]);
+        return redirect()->route('branch.show', [$branch])->with(['message' => 'Sucursal editada']);
     }
 
     /**
@@ -117,6 +117,6 @@ class BranchController extends Controller
         //
         Gate::authorize('admin');
         $branch->delete();
-        return redirect()->route('branch.index');
+        return redirect()->route('branch.index')->with(['message' => 'Sucursal Eliminada']);
     }
 }

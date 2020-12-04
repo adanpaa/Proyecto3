@@ -17,7 +17,7 @@ class IsCustomer
     public function handle(Request $request, Closure $next)
     {
         if (\Auth::user()->type == 'Customer') {
-            return redirect()->back()->with('message', 'No tiene acceso');
+            return redirect()->back()->with(['message' => 'No tiene acceso']);
         }
 
         return $next($request);

@@ -64,7 +64,7 @@ class CustomerController extends Controller
         $customer->save();
         $customer->trainer()->attach($request->trainer_id);
 
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with(['message' => 'Cliente agregado']);
     }
 
     /**
@@ -113,7 +113,7 @@ class CustomerController extends Controller
         Customer::where('id', $customer->id)->update($request->except('_token', '_method', 'trainer_id'));
         $customer->trainer()->sync($request->trainer_id);
 
-        return redirect()->route('customer.show', [$customer]);
+        return redirect()->route('customer.show', [$customer])->with(['message' => 'Cliente editado']);
 
     }
 
@@ -128,6 +128,6 @@ class CustomerController extends Controller
         //
         Gate::authorize('admin'); 
         $customer->delete();
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with(['message' => 'Cliente Eliminado']);
     }
 }

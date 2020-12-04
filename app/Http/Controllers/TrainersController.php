@@ -62,7 +62,7 @@ class TrainersController extends Controller
 
         Trainer::create($request->all());
 
-        return redirect('/trainer');
+        return redirect('/trainer')->with(['message' => 'Entrenador agregado']);
     }
 
     /**
@@ -110,7 +110,7 @@ class TrainersController extends Controller
 
         Trainer::where('id', $trainer->id)->update($request->except('_token', '_method'));
 
-        return redirect()->route('trainer.show', [$trainer]);
+        return redirect()->route('trainer.show', [$trainer])->with(['message' => 'Entrenador editado']);
     }
 
     /**
@@ -124,6 +124,6 @@ class TrainersController extends Controller
         //
         Gate::authorize('admin');
         $trainer->delete();
-        return redirect()->route('trainer.index');
+        return redirect()->route('trainer.index')->with(['message' => 'Entrenador eliminado']);
     }
 }
