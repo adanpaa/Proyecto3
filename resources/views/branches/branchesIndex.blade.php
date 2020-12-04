@@ -15,9 +15,11 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+@can('admin')
 <p align=center>
 <a href="/branch/create">Add new branch</a>
 </p>
+@endcan
 
 <h1 align=center>Listado de Sucursales y sus Clientes</h1>
 

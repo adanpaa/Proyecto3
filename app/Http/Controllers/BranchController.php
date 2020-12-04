@@ -33,7 +33,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        //
+        Gate::authorize('admin');
         return view('branches/branchesForm');
     }
 

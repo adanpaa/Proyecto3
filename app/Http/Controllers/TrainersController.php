@@ -34,7 +34,7 @@ class TrainersController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Trainer::class);
         return view('trainers/trainersForm');
     }
 

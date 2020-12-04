@@ -15,9 +15,11 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+@can('create', App\Models\Trainer::class)
 <p align=center>
 <a href="/trainer/create">Add new trainer</a>
 </p>
+@endcan
 
 <table align=center border='1'>
   <tr>

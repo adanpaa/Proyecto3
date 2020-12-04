@@ -15,18 +15,22 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
-@can('admin')
 <ul align=center>
+@can('create', App\Models\Customer::class)
 <a href="{{ action([\App\Http\Controllers\CustomerController::class, 'create']) }}">Añadir nuevo cliente</a><br>
+@endcan
+@can('update', $customer)
 <a href="{{ route('customer.edit', [$customer->id]) }}">Editar Cliente</a><br>
+@endcan
+@can('admin')
 <form action="{{ route('customer.destroy', [$customer]) }}" method="POST">
   @method('DELETE')
   @csrf
 
   <button type="submit">Eliminar Cliente</button>
 </form>
-</ul>
 @endcan
+</ul>
 
 <table align=center border='1'>
   <tr>

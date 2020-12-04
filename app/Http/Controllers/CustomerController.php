@@ -22,7 +22,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', Customer::class);
         $customers = Customer::with('branch', 'trainer')->get();
         return view('customers/customersIndex', compact('customers'));
     }
@@ -75,7 +75,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        $this->authorize('view', $customer);
         return view('customers/customersShow', compact('customer'));
     }
 
@@ -87,8 +87,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
-        Gate::authorize('admin');
+        //Gate::authorize('admin');
         $branches = Branch::all();
         $trainers = Trainer::all();
         return view('customers/customersForm', compact('customer', 'branches', 'trainers'));

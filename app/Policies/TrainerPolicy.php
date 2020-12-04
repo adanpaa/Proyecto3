@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Customer;
+use App\Models\Trainer;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CustomerPolicy
+class TrainerPolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class CustomerPolicy
      */
     public function viewAny(User $user)
     {
-        return ($user->type == 'Admin' || $user->type == 'Trainer');
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Trainer  $trainer
      * @return mixed
      */
-    public function view(User $user, Customer $customer)
+    public function view(User $user, Trainer $trainer)
     {
-        return ($user->type == 'Admin' || $user->type == 'Trainer');
+        //
     }
 
     /**
@@ -41,29 +41,29 @@ class CustomerPolicy
      */
     public function create(User $user)
     {
-        return ($user->type == 'Admin' || $user->type == 'Trainer');
+        return ($user->type == 'Admin');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Trainer  $trainer
      * @return mixed
      */
-    public function update(User $user, Customer $customer)
+    public function update(User $user, Trainer $trainer)
     {
-        return ($user->type == 'Admin' || $user->type == 'Trainer');
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Trainer  $trainer
      * @return mixed
      */
-    public function delete(User $user, Customer $customer)
+    public function delete(User $user, Trainer $trainer)
     {
         //
     }
@@ -72,10 +72,10 @@ class CustomerPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Trainer  $trainer
      * @return mixed
      */
-    public function restore(User $user, Customer $customer)
+    public function restore(User $user, Trainer $trainer)
     {
         //
     }
@@ -84,10 +84,10 @@ class CustomerPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Trainer  $trainer
      * @return mixed
      */
-    public function forceDelete(User $user, Customer $customer)
+    public function forceDelete(User $user, Trainer $trainer)
     {
         //
     }
