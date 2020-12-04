@@ -15,9 +15,11 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
+@can('create', App\Models\Customer::class)
 <p align=center>
 <a href="/customer/create">Add new customer</a>
 </p>
+@endcan
 
 <table align=center border='1'>
   <tr>

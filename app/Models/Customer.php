@@ -37,4 +37,8 @@ class Customer extends Model
         $this->attributes['nombre'] = ucfirst(strtolower($value));
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

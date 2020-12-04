@@ -34,7 +34,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Customer::class);
         $branches = Branch::all();
         $trainers = Trainer::all();
         return view('customers.customersForm', compact('branches', 'trainers'));
@@ -127,7 +127,7 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         //
-        Gate::authorize('admin');
+        Gate::authorize('admin'); 
         $customer->delete();
         return redirect()->route('customer.index');
     }
