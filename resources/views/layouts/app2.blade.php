@@ -89,9 +89,11 @@
 
     </div>
   </header><!-- End Header -->
-  <header id="header" class="fixed-top header-inner-pages">
+  <p>
+  <header id="header" class="fixed-bottom header-inner-pages">
     @include('partials.message')
   </header>
+  </p>
 
   @yield('contenido')
 

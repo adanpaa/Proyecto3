@@ -24,28 +24,40 @@
 @include('partials.error-view');
 
 @if(isset($branch))
-<form action="{{ route('branch.update', [$branch]) }}" method="POST">
+<form action="{{ route('branch.update', [$branch]) }}" method="POST" class="card">
 @method('patch');
 @else
-<form action="{{ route('branch.store')}}" method="POST">
+<form action="{{ route('branch.store')}}" method="POST" class="card">
 @endif
-    @csrf
-    <ul align=center>
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" value="{{ old('nombre') ?? $branch->nombre ?? '' }}"><br>
 
-    <label for="direccion">Direccion:</label>
-    <input type="text" name="direccion" value="{{ old('direccion') ?? $branch->direccion ?? '' }}"><br>
+    <div class="card-header" align=center>
+      <h3>Formulario de Sucursales</h3>
+    </div>
 
-    <label for="correo">Correo:</label>
-    <input type="text" name="correo" value="{{ old('correo') ?? $branch->correo ?? '' }}"><br>
+      <div class="card-body col-6 align-self-md-center">
+        @csrf
+          <div class="form-group">
+            <p align=center><label class="col-form-label" for="nombre">Nombre:</label></p>
+            <input class="form-control" style="text-align:center" type="text" name="nombre" value="{{ old('nombre') ?? $branch->nombre ?? '' }}"><br>
+          </div>
 
-    <label for="telefono">Telefono:</label>
-    <input type="text" name="telefono" value="{{ old('telefono') ?? $branch->telefono ?? '' }}"><br>
+          <div class="form-group">
+            <p align=center><label class="col-form-label" for="direccion">Direccion:</label></p>
+            <input class="form-control" style="text-align:center" type="text" name="direccion" value="{{ old('direccion') ?? $branch->direccion ?? '' }}"><br>
+          </div>
 
+          <div class="form-group">
+            <p align=center><label class="col-form-label" for="correo">Correo:</label></p>
+            <input class="form-control" style="text-align:center" type="text" name="correo" value="{{ old('correo') ?? $branch->correo ?? '' }}"><br>
+          </div>
 
-    <button type="submit">Guardar</button>
-</ul>
+          <div class="form-group">
+            <p align=center><label class="col-form-label" for="telefono">Telefono:</label></p>
+            <input class="form-control" style="text-align:center" type="text" name="telefono" value="{{ old('telefono') ?? $branch->telefono ?? '' }}"><br>
+          </div>
+
+          <p align=center><button class="btn btn-dark" type="submit" class="button-primary">Guardar</button></p>
+      </div>
 </form>
 <section id="breadcrumbs" class="breadcrumbs">
   <div class="container">   

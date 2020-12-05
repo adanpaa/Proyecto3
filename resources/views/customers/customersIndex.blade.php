@@ -17,12 +17,12 @@
 
 @can('create', App\Models\Customer::class)
 <p align=center>
-<a href="/customer/create">Add new customer</a>
+<a class="btn btn-dark" href="/customer/create">Agregar Nuevo Cliente</a>
 </p>
 @endcan
 
-<table align=center border='1'>
-  <tr>
+<table class="table" align=center>
+  <tr class="thead-dark">
     <th>ID</th>
     <th>Nombre</th>
     <th>Edad</th>
@@ -31,7 +31,7 @@
     <th>Entrenadores</th>
   </tr>
   @foreach ($customers as $p)
-    <tr>
+    <tr class="col-10">
       <td>{{ $p->id }}</td>
       <td><a href="/customer/{{ $p->id }}">{{ $p->nombre }}</a></td>
       <td>{{ $p->edad }}</td>

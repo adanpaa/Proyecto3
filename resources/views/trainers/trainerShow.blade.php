@@ -15,21 +15,8 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
-@can('admin')
-<ul align=center>
-<a href="{{ action([\App\Http\Controllers\TrainersController::class, 'create']) }}">Añadir nuevo entrenador</a><br>
-<a href="{{ route('trainer.edit', [$trainer->id]) }}">Editar Entrenador</a><br>
-<form action="{{ route('trainer.destroy', [$trainer]) }}" method="POST">
-  @method('DELETE')
-  @csrf
-
-  <button type="submit">Eliminar Entrenador</button>
-</form>
-</ul>
-@endcan
-
-<table align=center border='1'>
-  <tr>
+<table class="table" align=center>
+  <tr class="thead-dark">
     <th>ID</th>
     <th>Nombre</th>
     <th>Apellido</th>
@@ -44,6 +31,19 @@
       <td>{{ $trainer->area }}</td>
     </tr>
 </table>
+
+@can('admin')
+<ul align=center>
+<a class="btn btn-dark" href="{{ action([\App\Http\Controllers\TrainersController::class, 'create']) }}">Añadir nuevo entrenador</a>
+<a class="btn btn-warning" href="{{ route('trainer.edit', [$trainer->id]) }}">Editar Entrenador</a>
+<form action="{{ route('trainer.destroy', [$trainer]) }}" method="POST">
+  @method('DELETE')
+  @csrf
+
+  <button class="btn btn-danger" type="submit">Eliminar Entrenador</button>
+</form>
+</ul>
+@endcan
 
 <section id="breadcrumbs" class="breadcrumbs">
   <div class="container">   

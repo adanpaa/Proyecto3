@@ -114,6 +114,11 @@ ul ol {
   margin-bottom: 0;
 }
 
+ul.navega li {
+  display: inline;
+  padding-right: 0.5em;
+}
+
 dt {
   font-weight: 700;
 }
@@ -4778,6 +4783,7 @@ input[type="button"].btn-block {
 .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  margin: 0 auto;
   min-height: 1px;
   padding: 1.25rem;
 }

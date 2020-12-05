@@ -15,25 +15,8 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
-<ul align=center>
-@can('create', App\Models\Customer::class)
-<a href="{{ action([\App\Http\Controllers\CustomerController::class, 'create']) }}">Añadir nuevo cliente</a><br>
-@endcan
-@can('update', $customer)
-<a href="{{ route('customer.edit', [$customer->id]) }}">Editar Cliente</a><br>
-@endcan
-@can('admin')
-<form action="{{ route('customer.destroy', [$customer]) }}" method="POST">
-  @method('DELETE')
-  @csrf
-
-  <button type="submit">Eliminar Cliente</button>
-</form>
-@endcan
-</ul>
-
-<table align=center border='1'>
-  <tr>
+<table class="table" align=center>
+  <tr class="thead-dark">
     <th>ID</th>
     <th>Nombre</th>
     <th>Edad</th>
@@ -54,6 +37,23 @@
       </td>
     </tr>
 </table>
+
+<ul class="navega" align=center>
+@can('create', App\Models\Customer::class)
+<a class="btn btn-dark" href="{{ action([\App\Http\Controllers\CustomerController::class, 'create']) }}">Agregar Nuevo cliente</a>
+@endcan
+@can('update', $customer)
+<a class="btn btn-warning" href="{{ route('customer.edit', [$customer->id]) }}">Editar Cliente</a>
+@endcan
+@can('admin')
+<form action="{{ route('customer.destroy', [$customer]) }}" method="POST">
+  @method('DELETE')
+  @csrf
+
+  <button class="btn btn-danger" type="submit">Eliminar Cliente</button>
+</form>
+@endcan
+</ul>
 
 <section id="breadcrumbs" class="breadcrumbs">
   <div class="container">   

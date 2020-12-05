@@ -15,21 +15,8 @@
   </div>
 </section><!-- End Breadcrumbs -->
 
-@can('admin')
-<ul align=center>
-<a href="{{ action([\App\Http\Controllers\BranchController::class, 'create']) }}">Añadir nueva Sucursal</a><br>
-<a href="{{ route('branch.edit', [$branch->id]) }}">Editar Sucursal</a><br>
-<form action="{{ route('branch.destroy', [$branch]) }}" method="POST">
-  @method('DELETE')
-  @csrf
-
-  <button type="submit">Eliminar Sucursal</button>
-</form>
-</ul>
-@endcan
-
-<table align=center border='1'>
-  <tr>
+<table class="table" align=center>
+  <tr class="thead-dark">
     <th>ID</th>
     <th>Nombre</th>
     <th>Direccion</th>
@@ -44,6 +31,18 @@
       <td>{{ $branch->telefono }}</td>
     </tr>
 </table>
+
+@can('admin')
+<ul class="navega" align=center>
+<a class="btn btn-dark" href="{{ action([\App\Http\Controllers\BranchController::class, 'create']) }}">Agregar Nueva Sucursal</a>
+<a class="btn btn-warning" href="{{ route('branch.edit', [$branch->id]) }}">Editar Sucursal</a>
+<form action="{{ route('branch.destroy', [$branch]) }}" method="POST">
+  @method('DELETE')
+  @csrf
+  <button class="btn btn-danger" type="submit">Eliminar Sucursal</button>
+</form>
+</ul>
+@endcan
 
 <section id="breadcrumbs" class="breadcrumbs">
   <div class="container">   

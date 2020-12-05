@@ -17,7 +17,7 @@
 
 @can('admin')
 <p align=center>
-<a href="/branch/create">Add new branch</a>
+<a class="btn btn-dark" href="/branch/create">Agregar Nueva Sucursal</a>
 </p>
 @endcan
 
@@ -27,8 +27,8 @@
 
     <h4 align=center><a href="/branch/{{ $branch->id }}">{{ $branch->nombre }}</a></h4>
 
-        <table align=center border='1'>
-            <tr>
+        <table class="table" align=center>
+            <tr class="thead-dark">
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Edad</th>

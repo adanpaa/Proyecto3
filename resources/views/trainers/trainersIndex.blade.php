@@ -17,12 +17,12 @@
 
 @can('create', App\Models\Trainer::class)
 <p align=center>
-<a href="/trainer/create">Add new trainer</a>
+<a class="btn btn-dark" href="/trainer/create">Agregar Nuevo Entrenador</a>
 </p>
 @endcan
 
-<table align=center border='1'>
-  <tr>
+<table class="table" align=center>
+  <tr class="thead-dark">
     <th>ID</th>
     <th>Nombre</th>
     <th>Edad</th>
