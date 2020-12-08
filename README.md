@@ -4,3 +4,7 @@ Objetivo: El objetivo de este proyecto es ofrecer una pagina web a un gimnasio q
 
 Integrantes:
 Adan Palacios
+
+Instalacion: 
+Solamente es necesario tener como tipo de usuario "Admin" para todas las funciones
+(Tabla users, atributo type)
